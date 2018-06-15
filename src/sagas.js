@@ -7,8 +7,13 @@ import {
 import { fetchData } from './api'
 
 function* getMediaGrid(action) {
+  const {
+    offset,
+    limit
+  } = action.payload
+
   try {
-    const requestURL = 'https://hoopla-ws-dev.hoopladigital.com/kinds/7/titles/featured?offset=0&limit=51&kindId=7'
+    const requestURL = `https://hoopla-ws-dev.hoopladigital.com/kinds/7/titles/featured?offset=${offset}&limit=${limit}&kindId=7`
     const data = yield call(fetchData, requestURL)
     yield put(receiveMediaGrid(data))
   } catch (e) {
@@ -17,7 +22,7 @@ function* getMediaGrid(action) {
 }
 
 function* mediaSaga() {
-  yield takeLatest('REQUEST_MEDIA_GRID', getMediaGrid)
+  yield takeLatest(REQUEST_MEDIA_GRID, getMediaGrid)
 }
 
 export default mediaSaga

@@ -1,6 +1,47 @@
+.container {
+  text-align: center;
+}
+
+.container--header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #9e9e9e;
+  z-index: 2;
+}
+
+.container--title {
+  text-decoration: underline;
+}
+
+.container--pagination {
+  width: 100%;
+}
+
+.container--prev {
+  float: left;
+  position: relative;
+  left: 25%;
+  bottom: 18px;
+}
+
+.container--next {
+  float: right;
+  position: relative;
+  right: 25%;
+  bottom: 18px;
+}
+
+.container--prev:hover,
+.container--next:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .gallery {
   text-align: center;
   min-height: 100vh;
+  margin-top: 120px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -9,6 +50,7 @@
 
 .gallery--item {
   margin: 8px;
+  width: 300px;
 }
 
 .gallery--item--title {
